@@ -88,6 +88,7 @@ def _date_added(i_t):
 filter_funcs = {
     'func_ratio': _get_ratio,
     'func_added': lambda i_t: (time.time() - i_t[1].get_status(['time_added'])['time_added']) / 3600.0,
+    'func_completed': lambda i_t: (time.time() - i_t[1].get_status(['completed_time'])['completed_time']) / 3600.0,
     'func_seed_time': lambda i_t: i_t[1].get_status(['seeding_time'])['seeding_time'] / 3600.0,
     'func_seeders': lambda i_t: i_t[1].get_status(['total_seeds'])['total_seeds'],
     'func_size': lambda i_t: i_t[1].get_status(['total_size'])['total_size'] / 1073741824.0
@@ -157,6 +158,7 @@ class Core(CorePluginBase):
             'func_size': 'Size',
             'func_ratio': 'Ratio',
             'func_added': 'Date Added',
+            'func_completed': 'Date Completed',
             'func_seed_time': 'Seed Time',
             'func_seeders': 'Seeders'
         }
