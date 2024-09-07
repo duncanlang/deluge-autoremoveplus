@@ -4,3 +4,4 @@ build/
 dist/
 AutoRemovePlus.egg-info/
 .idea/
+build.bat
